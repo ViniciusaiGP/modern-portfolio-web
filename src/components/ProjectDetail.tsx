@@ -1,7 +1,7 @@
 import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { GithubLogo, ArrowUpRight, Pencil, Trash, X } from '@phosphor-icons/react'
+import { GithubLogo, ArrowUpRight, Pencil, Trash } from '@phosphor-icons/react'
 import type { Project } from '@/types/project'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -36,14 +36,7 @@ export function ProjectDetail({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[95vh] overflow-hidden p-0 gap-0 bg-card/95 backdrop-blur-xl border-border/50">
-        <button
-          onClick={onClose}
-          className="absolute top-6 right-6 z-50 p-2.5 rounded-xl bg-background/90 backdrop-blur-md border border-border/60 hover:bg-accent/10 hover:border-accent/50 hover:scale-105 transition-all duration-200 shadow-lg"
-        >
-          <X size={20} className="text-foreground" />
-        </button>
-
+      <DialogContent className="max-w-6xl max-h-[95vh] overflow-hidden p-0 gap-0 bg-card/95 backdrop-blur-xl border-border/50 [&>button]:top-6 [&>button]:right-6 [&>button]:p-2.5 [&>button]:rounded-xl [&>button]:bg-background/90 [&>button]:backdrop-blur-md [&>button]:border [&>button]:border-border/60 [&>button]:hover:bg-accent/10 [&>button]:hover:border-accent/50 [&>button]:hover:scale-105 [&>button]:transition-all [&>button]:duration-200 [&>button]:shadow-lg">
         <div className="grid md:grid-cols-[1.2fr,1fr] gap-0 max-h-[95vh]">
           <div className="relative aspect-[16/10] md:aspect-auto md:h-full bg-gradient-to-br from-muted/30 via-accent/5 to-primary/5 overflow-hidden">
             <AnimatePresence mode="wait">
