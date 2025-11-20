@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowDown, GithubLogo, LinkedinLogo as LinkedinLogoIcon, EnvelopeSimple } from '@phosphor-icons/react'
+import { ArrowDown, GithubLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react'
 import { useRef } from 'react'
 import { Button } from '@/components/ui/button'
 
@@ -108,7 +108,7 @@ export function Hero() {
               asChild
             >
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <LinkedinLogoIcon weight="fill" />
+                <LinkedinLogo weight="fill" />
               </a>
             </Button>
             <Button 
