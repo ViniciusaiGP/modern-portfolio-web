@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { GithubLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react'
+import { GithubLogo, LinkedinLogo as LinkedinLogoIcon, EnvelopeSimple } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
 
 export function Navbar() {
@@ -79,7 +79,7 @@ export function Navbar() {
               asChild
             >
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <LinkedinLogo weight="fill" size={18} />
+                <LinkedinLogoIcon weight="fill" size={18} />
               </a>
             </Button>
             <Button 
