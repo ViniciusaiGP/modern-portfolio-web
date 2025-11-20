@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { Hero } from '@/components/Hero'
+import { AboutSection } from '@/components/AboutSection'
 import { ProjectGrid } from '@/components/ProjectGrid'
 import { ProjectDetail } from '@/components/ProjectDetail'
 import { ProjectForm } from '@/components/ProjectForm'
@@ -85,12 +86,22 @@ function App() {
     <div className="min-h-screen bg-background">
       <Hero />
       
-      <main className="px-6 md:px-12 lg:px-24 py-16 md:py-24">
+      <AboutSection />
+
+      <main id="projects" className="px-6 md:px-12 lg:px-24 py-24 md:py-32">
         <ProjectGrid 
           projects={projects || []} 
           onProjectClick={handleProjectClick}
         />
       </main>
+
+      <footer className="border-t border-border/50 py-12 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-muted-foreground">
+            © {new Date().getFullYear()} Todos os direitos reservados.
+          </p>
+        </div>
+      </footer>
 
       <ProjectDetail
         project={selectedProject}

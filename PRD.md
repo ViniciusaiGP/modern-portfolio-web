@@ -1,140 +1,163 @@
 # Planning Guide
 
-A modern, visually striking portfolio website that showcases professional projects with Firebase-hosted images and direct LinkedIn integration for each project.
+Um portfólio moderno e visualmente impactante que apresenta trabalhos profissionais com animações suaves, design contemporâneo e integração com Firebase e LinkedIn.
 
 **Experience Qualities**:
-1. **Professional** - The portfolio should exude competence and attention to detail, making a strong first impression on potential employers or clients
-2. **Immersive** - Project showcases should draw visitors in with rich imagery and smooth interactions that highlight the work
-3. **Effortless** - Navigation and information discovery should feel natural and intuitive, requiring minimal cognitive load
+1. **Impactante** - O portfólio deve causar uma primeira impressão marcante com hero sections dinâmicas, gradientes animados e micro-interações que demonstram atenção aos detalhes
+2. **Fluído** - Todas as transições e animações devem ser suaves e naturais, criando uma experiência contínua enquanto o visitante navega pelo conteúdo
+3. **Profissional** - O design deve transmitir competência técnica e excelência criativa através de tipografia bem hierarquizada, espaçamento generoso e composições visuais equilibradas
 
 **Complexity Level**: Light Application (multiple features with basic state)
-  - The site manages project data, integrates with Firebase for images, handles external LinkedIn links, and provides admin capabilities for the owner
+  - O site gerencia dados de projetos, integra com Firebase para imagens, possui links externos para LinkedIn, e oferece recursos completos de administração para o proprietário, tudo com persistência via useKV
 
 ## Essential Features
 
-### Project Gallery Display
-- **Functionality**: Grid layout displaying all portfolio projects with images, titles, and descriptions
-- **Purpose**: Provides immediate visual impact and allows visitors to browse work quickly
-- **Trigger**: Automatically loads on page visit
-- **Progression**: Page loads → Projects fetch from KV storage → Grid renders with images from Firebase → Hover reveals project details
-- **Success criteria**: All projects visible, images load smoothly, responsive grid adapts to screen sizes
+### Hero Section Impactante
+- **Functionality**: Seção hero em tela cheia com animações parallax, gradientes animados, estatísticas dinâmicas e CTAs destacados
+- **Purpose**: Criar uma primeira impressão memorável e comunicar valor imediatamente
+- **Trigger**: Carregamento da página
+- **Progression**: Página carrega → Animações de fade-in escalonadas → Blobs gradientes com parallax → Estatísticas aparecem → Scroll suave para projetos
+- **Success criteria**: Animações fluidas 60fps, gradientes renderizam corretamente, scroll suave funciona, links sociais abrem em nova aba
 
-### Project Detail View
-- **Functionality**: Click on any project to see full details including description, technologies used, and LinkedIn link
-- **Purpose**: Allows deeper engagement with individual projects and provides context
-- **Trigger**: User clicks on a project card
-- **Progression**: Click project card → Modal/detail view opens → Full project information displays → LinkedIn button prominently shown → Click LinkedIn redirects to profile
-- **Success criteria**: Smooth transition to detail view, all information clearly displayed, LinkedIn redirect works
+### Seção Sobre com Skills
+- **Functionality**: Apresentação pessoal com valores, skills organizadas por categoria e badges animadas
+- **Purpose**: Humanizar o portfólio e demonstrar competências técnicas de forma visual
+- **Trigger**: Scroll até a seção
+- **Progression**: Scroll → Animações de entrada → Cards de valores aparecem → Grid de skills revela badges em cascata
+- **Success criteria**: Animações ativam no viewport, cards responsivos, badges organizadas logicamente
+
+### Grid de Projetos Moderno
+- **Functionality**: Layout grid responsivo com cards 3D interativos, efeitos hover sofisticados e animações stagger
+- **Purpose**: Mostrar trabalhos de forma atraente e permitir navegação visual rápida
+- **Trigger**: Scroll até seção de projetos
+- **Progression**: Scroll → Header da seção anima → Cards aparecem em cascata → Hover revela efeito 3D e overlay → Click abre modal detalhado
+- **Success criteria**: Cards 3D responsivos ao mouse, imagens carregam com skeleton, grid adapta-se a diferentes telas
+
+### Modal de Detalhes Split-Screen
+- **Functionality**: Modal em duas colunas com imagem em tela cheia e informações detalhadas do projeto
+- **Purpose**: Apresentar projetos de forma imersiva com espaço para storytelling e CTAs claros
+- **Trigger**: Click em qualquer project card
+- **Progression**: Click → Modal desliza com animação → Imagem fade-in à esquerda → Conteúdo anima à direita → Badges aparecem em sequência → CTAs destacados
+- **Success criteria**: Layout split responsivo (stack em mobile), animações coordenadas, LinkedIn abre externamente
 
 ### Admin Project Management
-- **Functionality**: Portfolio owner can add, edit, and delete projects
-- **Purpose**: Allows portfolio owner to keep content current without code changes
-- **Trigger**: Owner visits the site (detected via spark.user().isOwner)
-- **Progression**: Owner loads page → Admin controls visible → Click "Add Project" → Form appears → Enter project details and Firebase image URL → Save → Project appears in gallery
-- **Success criteria**: Only owner sees admin controls, projects persist via useKV, CRUD operations work smoothly
-
-### Firebase Image Integration
-- **Functionality**: Each project references images stored in Firebase Storage via URL
-- **Purpose**: Separates image hosting from application, allows easy image management
-- **Trigger**: When displaying projects or adding new ones
-- **Progression**: Admin enters Firebase Storage URL → URL saved with project → Image displays in gallery → Optimized loading with placeholders
-- **Success criteria**: Images load reliably, broken image states handled gracefully, URLs persist correctly
+- **Functionality**: FAB gradiente flutuante para adicionar projetos, formulários de edição e confirmação de exclusão
+- **Purpose**: Permitir gerenciamento de conteúdo sem edição de código
+- **Trigger**: Proprietário visita o site (spark.user().isOwner)
+- **Progression**: Owner carrega página → FAB anima com spring → Click FAB → Form modal → Preenche dados Firebase URL → Salva → Projeto aparece no grid
+- **Success criteria**: Apenas owner vê controles, CRUD completo funciona, dados persistem via useKV, toasts confirmam ações
 
 ## Edge Case Handling
 
-- **Empty Portfolio**: First-time visitors see an elegant empty state with placeholder content and invitation message (admin sees "Add your first project" CTA)
-- **Broken Image URLs**: Display placeholder image or gradient background if Firebase URL fails to load
-- **Long Project Titles/Descriptions**: Text truncates elegantly with ellipsis, full content visible in detail view
-- **Mobile Experience**: Touch-optimized interactions, stacked layout for smaller screens, accessible buttons
-- **No LinkedIn URL**: Project cards show alternative contact method or hide LinkedIn button gracefully
+- **Empty Portfolio**: Estado vazio elegante com ícone grande, mensagem acolhedora e visual moderno (admin vê CTA destacado)
+- **Broken Image URLs**: Placeholder com ícone emoji e mensagem amigável quando Firebase URL falha
+- **Long Project Titles/Descriptions**: Text truncate com line-clamp em cards, conteúdo completo no modal
+- **Mobile Experience**: Hero adapta tamanhos, grid vira coluna única, modal split vira stack vertical, FAB permanece acessível
+- **No LinkedIn URL**: Botão LinkedIn oculto graciosamente se URL não fornecida
+- **Slow Image Loading**: Skeleton shimmer animado com gradientes enquanto imagens carregam
+- **Mouse vs Touch**: Efeito 3D só em hover de mouse, taps funcionam normalmente em touch
+- **Scroll Performance**: useScroll do Framer Motion otimizado, parallax apenas em desktop
 
 ## Design Direction
 
-The design should feel modern, minimal, and sophisticated—like a high-end design agency portfolio. Clean lines, generous white space, and subtle animations create an effortless browsing experience that puts the work front and center.
+O design deve parecer premium e contemporâneo—como os melhores portfólios de design e desenvolvimento da atualidade. Gradientes sutis mas vibrantes, micro-interações polidas, espaçamento generoso e tipografia impactante criam uma experiência que coloca o trabalho em evidência enquanto demonstra maestria técnica e visual.
 
 ## Color Selection
 
-Custom palette with a sophisticated, contemporary feel that works well for showcasing visual work.
+Paleta customizada com gradientes vibrantes que transmitem modernidade e criatividade profissional.
 
-- **Primary Color**: Deep midnight blue (oklch(0.25 0.05 250)) - Communicates professionalism and creativity, used for primary CTAs and accents
-- **Secondary Colors**: Slate gray (oklch(0.45 0.01 250)) for supporting text and borders, maintaining visual hierarchy without harshness
-- **Accent Color**: Vibrant cyan (oklch(0.70 0.15 200)) - Modern, eye-catching highlight for interactive elements and project highlights
+- **Primary Color**: Midnight blue profundo (oklch(0.25 0.05 250)) - Âncora de confiança e profissionalismo, usado em textos e elementos estruturais
+- **Secondary Colors**: Slate cinza (oklch(0.45 0.01 250)) para hierarquia visual suave e elementos secundários
+- **Accent Color**: Cyan vibrante (oklch(0.70 0.15 200)) - Energia e inovação, usado em gradientes, CTAs e destaques interativos
+- **Gradients**: Combinações de accent + primary criam profundidade e movimento visual (hero blobs, badges, FAB)
 - **Foreground/Background Pairings**:
-  - Background (Pure white oklch(1 0 0)): Deep charcoal text (oklch(0.15 0 0)) - Ratio 14.5:1 ✓
-  - Card (Soft gray oklch(0.98 0 0)): Deep charcoal text (oklch(0.15 0 0)) - Ratio 14.2:1 ✓
+  - Background (Branco puro oklch(1 0 0)): Charcoal text (oklch(0.15 0 0)) - Ratio 14.5:1 ✓
+  - Card (Cinza suave oklch(0.98 0 0)): Charcoal text (oklch(0.15 0 0)) - Ratio 14.2:1 ✓
   - Primary (Midnight blue oklch(0.25 0.05 250)): White text (oklch(1 0 0)) - Ratio 12.8:1 ✓
   - Secondary (Slate gray oklch(0.45 0.01 250)): White text (oklch(1 0 0)) - Ratio 5.2:1 ✓
-  - Accent (Vibrant cyan oklch(0.70 0.15 200)): Deep charcoal text (oklch(0.15 0 0)) - Ratio 9.1:1 ✓
+  - Accent (Cyan vibrante oklch(0.70 0.15 200)): Charcoal text (oklch(0.15 0 0)) - Ratio 9.1:1 ✓
   - Muted (Light gray oklch(0.96 0 0)): Medium gray text (oklch(0.50 0 0)) - Ratio 5.8:1 ✓
 
 ## Font Selection
 
-Typography should be clean, contemporary, and highly readable with a touch of personality.
+Tipografia moderna e altamente legível que equilibra impacto visual com clareza profissional.
 
-- **Primary Font**: Inter - A versatile, modern sans-serif with excellent readability at all sizes, perfect for both headings and body text
-- **Secondary Font**: JetBrains Mono - For technical details like technology tags, adding a subtle tech-forward aesthetic
+- **Primary Font**: Inter - Sans-serif versátil e contemporâneo com excelente legibilidade, usado para todo conteúdo
+- **Secondary Font**: JetBrains Mono - Fonte monoespaçada para tags técnicas, adicionando personalidade tech
 
 - **Typographic Hierarchy**:
-  - H1 (Portfolio Title): Inter Bold/48px/tight letter-spacing (-0.02em)
-  - H2 (Section Headers): Inter SemiBold/32px/tight letter-spacing (-0.01em)
-  - H3 (Project Titles): Inter SemiBold/24px/normal letter-spacing
-  - Body (Descriptions): Inter Regular/16px/relaxed line-height (1.6)
-  - Caption (Tech Tags): JetBrains Mono Regular/14px/normal letter-spacing
-  - Button Text: Inter Medium/16px/slight letter-spacing (0.01em)
+  - H1 (Hero Title): Inter Bold/56-96px/letter-spacing -0.03em - Máximo impacto visual
+  - H2 (Section Headers): Inter Bold/40-64px/letter-spacing -0.02em - Estrutura e ritmo
+  - H3 (Card Titles): Inter SemiBold/20-24px - Clareza e escaneabilidade
+  - Body (Descriptions): Inter Regular/16-18px/line-height 1.6-1.7 - Conforto de leitura
+  - Small (Captions/Labels): Inter Medium/12-14px/uppercase tracking-wider - Hierarquia visual
+  - Tech Tags: JetBrains Mono Regular/12-14px - Identidade técnica
+  - Button Text: Inter Medium/16px - Ação clara
 
 ## Animations
 
-Animations should be subtle and purposeful, enhancing the premium feel without distracting from the portfolio content.
+Animações servem propósito funcional claro enquanto adicionam momentos de deleite—movimento natural e fluido que guia atenção sem distrair.
 
-- **Purposeful Meaning**: Motion communicates polish and attention to detail while guiding attention to interactive elements
+- **Purposeful Meaning**: Cada animação comunica estado, progresso ou relação espacial; parallax no hero cria profundidade, stagger revela hierarquia, 3D no hover convida interação
 - **Hierarchy of Movement**: 
-  - Primary: Project card hover effects (subtle lift and shadow increase)
-  - Secondary: Modal/dialog open/close transitions (smooth scale and fade)
-  - Tertiary: Button hover states (gentle color transitions)
-  - Ambient: Smooth scroll behavior, lazy-loaded image fades
+  - Critical: Transições de página/modal (300-500ms, ease cubic bezier)
+  - Primary: Card hover 3D com rotateX/Y, animações de entrada staggered
+  - Secondary: Badge cascades, gradient shifts, shimmer loading
+  - Tertiary: Button states, icon transforms, smooth scroll
+  - Ambient: Parallax blobs, subtle pulse em status indicators
 
 ## Component Selection
 
 - **Components**:
-  - Dialog: For project detail views with full information
-  - Card: For individual project items in the grid
-  - Button: For CTAs (LinkedIn links, admin actions) with primary/secondary variants
-  - Input/Textarea: For admin forms when adding/editing projects
-  - Badge: For technology tags on projects
-  - Form: For structured project creation/editing
-  - Alert Dialog: For delete confirmations
-  - Skeleton: For loading states while projects fetch
+  - Dialog: Modal split-screen para detalhes de projeto com layout duas colunas
+  - Card: Project cards com backdrop blur e bordas adaptativas
+  - Button: CTAs com variantes (primary gradient, secondary, destructive) e tamanhos
+  - Input/Textarea/Label: Formulários admin estruturados
+  - Badge: Technology tags com hover states e mono font
+  - Alert Dialog: Confirmação de exclusão com contexto claro
+  - Toaster (Sonner): Feedback de ações com animações suaves
   
 - **Customizations**:
-  - Custom project grid component with masonry-style layout
-  - Hero section with animated gradient background
-  - Floating admin action button (FAB) for owner
-  - Custom image component with lazy loading and blur-up effect
+  - Hero com parallax blobs e scroll progress
+  - AboutSection com value cards e skill grid
+  - ProjectCard com efeito 3D baseado em mouse position
+  - FAB com gradiente e animação spring
+  - Shimmer skeleton para image loading
+  - Split-screen modal responsivo
   
 - **States**:
-  - Buttons: Subtle scale on hover (1.02x), deeper color on active, disabled state grayed with cursor-not-allowed
-  - Cards: Lift effect on hover (translateY -4px), shadow intensity increase, border highlight
-  - Inputs: Accent color border on focus, subtle glow effect, validation state colors
-  - Images: Skeleton → blur placeholder → sharp image fade-in
+  - Buttons: Scale 1.1 on hover, 0.95 on tap, gradient shifts, disabled opacity 50%
+  - Cards: 3D rotation seguindo mouse, border accent on hover, shadow elevation
+  - Inputs: Accent border + ring on focus, validation colors (green/red)
+  - Images: Skeleton shimmer → blur fade → sharp reveal (600ms)
+  - Badges: Scale 1.05 on hover, background transition
   
-- **Icon Selection**:
-  - Plus: Add new project
-  - Pencil: Edit project
-  - Trash: Delete project
-  - LinkedinLogo: LinkedIn redirect
-  - ArrowUpRight: External link indicator
-  - X: Close modals/dialogs
+- **Icon Selection** (Phosphor Icons):
+  - Plus (bold): Adicionar projeto
+  - Pencil: Editar projeto
+  - Trash: Excluir projeto
+  - LinkedinLogo (fill): Redirect LinkedIn
+  - GithubLogo (fill): Link GitHub
+  - EnvelopeSimple (fill): Email contact
+  - ArrowUpRight (bold): Links externos
+  - ArrowDown (bold): Scroll indicator
+  - X: Fechar modals
+  - Code, Lightbulb, Rocket, Users (duotone): Value icons
   
 - **Spacing**:
   - Page margins: px-6 md:px-12 lg:px-24
-  - Section gaps: gap-16 md:gap-24
-  - Card padding: p-6
+  - Section vertical: py-24 md:py-32
+  - Section gaps: mb-16 (headers), mb-6/8 (subsections)
+  - Card padding: p-6 (small), p-8 md:p-12 (modals)
   - Grid gaps: gap-6 md:gap-8
-  - Button padding: px-6 py-3
+  - Button padding: size variants (sm/md/lg)
+  - Badge padding: px-2.5 py-0.5 (small), px-3 py-1 (medium)
   
 - **Mobile**:
-  - Grid: 1 column on mobile, 2 on tablet, 3-4 on desktop
-  - Hero text: Smaller scale on mobile (32px vs 48px)
-  - Admin FAB: Fixed position bottom-right on mobile
-  - Dialogs: Full-screen on mobile, centered modal on desktop
-  - Touch targets: Minimum 44x44px for all interactive elements
+  - Grid: 1 col mobile → 2 tablet → 3-4 desktop
+  - Hero: text-5xl md:text-7xl lg:text-8xl, stats 2 cols → 4 cols
+  - Modal: Stack vertical em mobile, split horizontal em md+
+  - AboutSection: 1 col → 2 → 4 progression
+  - FAB: bottom-8 right-8 sempre visível
+  - Touch targets: min 44x44px, cards inteiros clicáveis
+  - Typography: Escala fluida via viewport units onde apropriado
