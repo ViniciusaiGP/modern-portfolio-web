@@ -1,7 +1,7 @@
 import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { LinkedinLogo, ArrowUpRight, Pencil, Trash, X } from '@phosphor-icons/react'
+import { GithubLogo, ArrowUpRight, Pencil, Trash, X } from '@phosphor-icons/react'
 import type { Project } from '@/types/project'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -28,7 +28,7 @@ export function ProjectDetail({
 
   if (!project) return null
 
-  const handleLinkedInClick = () => {
+  const handleGitHubClick = () => {
     if (project.linkedinUrl) {
       window.open(project.linkedinUrl, '_blank', 'noopener,noreferrer')
     }
@@ -158,13 +158,13 @@ export function ProjectDetail({
               >
                 {project.linkedinUrl && (
                   <Button 
-                    onClick={handleLinkedInClick}
+                    onClick={handleGitHubClick}
                     size="lg"
                     className="w-full gap-2.5 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] group"
                     style={{ letterSpacing: '0.01em' }}
                   >
-                    <LinkedinLogo weight="fill" size={22} className="group-hover:scale-110 transition-transform" />
-                    Ver no LinkedIn
+                    <GithubLogo weight="fill" size={22} className="group-hover:scale-110 transition-transform" />
+                    Ver no Git
                     <ArrowUpRight weight="bold" size={20} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
                 )}
