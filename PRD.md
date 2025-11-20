@@ -82,23 +82,23 @@ Um portfólio ultra-moderno e visualmente sofisticado que apresenta trabalhos pr
 
 ## Design Direction
 
-O design deve ser absolutamente premium e contemporâneo—inspirado pelos melhores portfólios de design e desenvolvimento modernos (Vercel, Linear, Stripe). Gradientes vibrantes mas sofisticados, glassmorphism sutil, micro-interações polidas, espaçamento generoso respirando qualidade, tipografia impactante e hierarquia visual clara criam uma experiência que coloca o trabalho em destaque enquanto demonstra maestria técnica e sensibilidade visual.
+O design deve ser vibrante, moderno e energético—inspirado pelos melhores portfólios de design contemporâneos. Gradientes coloridos e dinâmicos, animações suaves mas impactantes, tipografia bold e hierarquia visual clara, micro-interações polidas, espaçamento generoso que respira qualidade. A experiência deve ser memorável e demonstrar maestria técnica através de cada detalhe visual e interativo.
 
 ## Color Selection
 
-Paleta customizada moderna com azul/cyan vibrante que transmite inovação, confiança e energia criativa profissional.
+Paleta customizada vibrante e moderna com gradientes dinâmicos que transmitem inovação, energia criativa e profissionalismo.
 
-- **Primary Color**: Deep violet blue (oklch(0.35 0.12 264)) - Sofisticação e profundidade, usado em textos escuros e elementos estruturais principais
-- **Secondary Colors**: Muted violet (oklch(0.55 0.08 264)) para hierarquia visual suave e elementos secundários com mesma temperatura
-- **Accent Color**: Bright cyan (oklch(0.65 0.18 220)) - Energia e inovação tecnológica, usado em gradientes vibrantes, CTAs principais e destaques interativos
-- **Gradients**: Combinações dinâmicas de accent cyan + primary violet criam profundidade visual e movimento (hero blobs orbitando, badges, FAB glassmorphism, overlays)
+- **Primary Color**: Vibrant Purple (oklch(0.45 0.25 280)) - Sofisticação, criatividade e tecnologia moderna, usado em gradientes e elementos principais
+- **Secondary Colors**: Magenta/Pink (oklch(0.60 0.22 320)) para contraste vibrante e hierarquia visual dinâmica
+- **Accent Color**: Bright Cyan/Blue (oklch(0.70 0.20 200)) - Energia, inovação e interatividade, usado em CTAs, highlights e animações
+- **Gradients**: Combinações dinâmicas de accent cyan + primary purple + secondary magenta criam profundidade visual e movimento (hero, badges, FAB, CTAs, overlays)
 - **Foreground/Background Pairings**:
-  - Background (Off-white sutil oklch(0.99 0.002 264)): Deep charcoal (oklch(0.12 0.015 264)) - Ratio 16.8:1 ✓
-  - Card (Pure white oklch(1 0 0)): Deep charcoal (oklch(0.12 0.015 264)) - Ratio 17.2:1 ✓
-  - Primary (Deep violet blue oklch(0.35 0.12 264)): White text (oklch(0.99 0.002 264)) - Ratio 8.9:1 ✓
-  - Secondary (Muted violet oklch(0.55 0.08 264)): White text (oklch(0.99 0.002 264)) - Ratio 4.7:1 ✓
-  - Accent (Bright cyan oklch(0.65 0.18 220)): Deep charcoal (oklch(0.12 0.015 264)) - Ratio 7.3:1 ✓
-  - Muted (Light gray oklch(0.96 0.005 264)): Medium gray text (oklch(0.48 0.01 264)) - Ratio 6.1:1 ✓
+  - Background (Off-white sutil oklch(0.98 0.005 270)): Deep charcoal (oklch(0.15 0.02 270)) - Ratio 18.5:1 ✓
+  - Card (Pure white oklch(1 0 0)): Deep charcoal (oklch(0.15 0.02 270)) - Ratio 19.2:1 ✓
+  - Primary (Vibrant purple oklch(0.45 0.25 280)): White text (oklch(0.99 0 0)) - Ratio 7.8:1 ✓
+  - Secondary (Magenta oklch(0.60 0.22 320)): White text (oklch(0.99 0 0)) - Ratio 5.2:1 ✓
+  - Accent (Bright cyan oklch(0.70 0.20 200)): White text (oklch(0.99 0 0)) - Ratio 4.9:1 ✓
+  - Muted (Light gray oklch(0.97 0.01 270)): Medium gray text (oklch(0.50 0.02 270)) - Ratio 6.5:1 ✓
 
 ## Font Selection
 

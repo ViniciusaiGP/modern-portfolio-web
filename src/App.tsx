@@ -99,53 +99,61 @@ function App() {
         />
       </main>
 
-      <footer className="relative border-t border-border/50 py-16 px-6 md:px-12 lg:px-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background to-accent/5" />
+      <footer className="relative border-t-2 border-border/30 py-20 px-6 md:px-12 lg:px-24 overflow-hidden bg-gradient-to-b from-background to-accent/5">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/5 to-primary/5" />
         <div className="relative max-w-7xl mx-auto text-center">
-          <div className="mb-6">
-            <h3 className="text-2xl font-bold mb-2">Vamos trabalhar juntos?</h3>
-            <p className="text-muted-foreground mb-8">Entre em contato e vamos criar algo incrível</p>
+          <div className="mb-10">
+            <h3 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+              Vamos trabalhar juntos?
+            </h3>
+            <p className="text-muted-foreground text-xl mb-12 max-w-2xl mx-auto font-medium">
+              Estou sempre aberto a novos desafios e oportunidades de colaboração
+            </p>
             
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-6 mb-6">
               <a 
-                href="mailto:contato@exemplo.com" 
-                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+                href="mailto:seu.email@exemplo.com" 
+                className="group flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-accent/10 to-primary/10 hover:from-accent/20 hover:to-primary/20 border-2 border-border/30 hover:border-accent/50 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent/20"
               >
-                <span className="text-lg">📧</span>
-                contato@exemplo.com
+                <span className="text-2xl">📧</span>
+                <span className="font-semibold text-foreground group-hover:text-accent transition-colors">seu.email@exemplo.com</span>
               </a>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4">
               <a 
-                href="https://github.com/seuusuario" 
+                href="https://github.com/seu-usuario" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+                className="group flex items-center gap-2 px-5 py-2.5 bg-card hover:bg-gradient-to-r hover:from-accent/10 hover:to-primary/10 border-2 border-border/30 hover:border-accent/50 rounded-lg transition-all duration-300 hover:scale-105"
               >
-                <span className="text-lg">🐙</span>
-                GitHub
+                <span className="text-xl">🐙</span>
+                <span className="text-sm font-semibold text-foreground/80 group-hover:text-accent transition-colors">GitHub</span>
               </a>
               <a 
-                href="https://linkedin.com/in/seuusuario" 
+                href="https://linkedin.com/in/seu-usuario" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+                className="group flex items-center gap-2 px-5 py-2.5 bg-card hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/10 border-2 border-border/30 hover:border-primary/50 rounded-lg transition-all duration-300 hover:scale-105"
               >
-                <span className="text-lg">💼</span>
-                LinkedIn
+                <span className="text-xl">💼</span>
+                <span className="text-sm font-semibold text-foreground/80 group-hover:text-primary transition-colors">LinkedIn</span>
               </a>
               <a 
-                href="https://twitter.com/seuusuario" 
+                href="https://twitter.com/seu-usuario" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+                className="group flex items-center gap-2 px-5 py-2.5 bg-card hover:bg-gradient-to-r hover:from-secondary/10 hover:to-accent/10 border-2 border-border/30 hover:border-secondary/50 rounded-lg transition-all duration-300 hover:scale-105"
               >
-                <span className="text-lg">🐦</span>
-                Twitter
+                <span className="text-xl">🐦</span>
+                <span className="text-sm font-semibold text-foreground/80 group-hover:text-secondary transition-colors">Twitter</span>
               </a>
             </div>
           </div>
-          <div className="pt-8 mt-8 border-t border-border/30">
-            <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Todos os direitos reservados. Feito com 💜 usando React + TypeScript
+          <div className="pt-10 mt-10 border-t-2 border-border/30">
+            <p className="text-muted-foreground text-sm font-medium">
+              © {new Date().getFullYear()} Todos os direitos reservados. Feito com{' '}
+              <span className="inline-block animate-pulse">💜</span> usando React + TypeScript
             </p>
           </div>
         </div>

@@ -26,28 +26,32 @@ const values = [
   {
     icon: Code,
     title: 'Código Limpo',
-    description: 'Escrevo código que outros desenvolvedores amam ler e manter'
+    description: 'Escrevo código que outros desenvolvedores amam ler e manter',
+    gradient: 'from-accent/20 to-primary/20'
   },
   {
     icon: Lightbulb,
     title: 'Inovação',
-    description: 'Sempre buscando as melhores soluções e tecnologias emergentes'
+    description: 'Sempre buscando as melhores soluções e tecnologias emergentes',
+    gradient: 'from-primary/20 to-secondary/20'
   },
   {
     icon: Rocket,
     title: 'Performance',
-    description: 'Otimização e velocidade são prioridades em cada projeto'
+    description: 'Otimização e velocidade são prioridades em cada projeto',
+    gradient: 'from-secondary/20 to-accent/20'
   },
   {
     icon: Users,
     title: 'Colaboração',
-    description: 'Trabalho em equipe e comunicação clara para resultados incríveis'
+    description: 'Trabalho em equipe e comunicação clara para resultados incríveis',
+    gradient: 'from-primary/20 to-accent/20'
   }
 ]
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 md:py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+    <section id="about" className="py-32 md:py-40 px-6 md:px-12 lg:px-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/5 to-background" />
       
       <div className="relative max-w-7xl mx-auto">
@@ -55,39 +59,40 @@ export function AboutSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm mb-6">
-            <span className="text-sm font-medium text-accent-foreground">Sobre Mim</span>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-accent/10 via-primary/10 to-secondary/10 border border-accent/30 backdrop-blur-md mb-8">
+            <span className="text-sm font-semibold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent uppercase tracking-wide">Sobre Mim</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ letterSpacing: '-0.02em' }}>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight">
             Transformando Ideias em{' '}
-            <span className="bg-gradient-to-br from-accent to-primary bg-clip-text text-transparent">
-              Realidade
+            <span className="block mt-2 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
+              Realidade Digital
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto" style={{ lineHeight: '1.6' }}>
-            Sou um desenvolvedor apaixonado por criar experiências digitais que combinam design excepcional 
-            com código robusto e escalável
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium">
+            Desenvolvedor apaixonado por criar experiências digitais que combinam{' '}
+            <span className="text-foreground font-semibold">design excepcional</span> com{' '}
+            <span className="text-foreground font-semibold">código robusto</span> e escalável
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {values.map((value, index) => (
             <motion.div
               key={value.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Card className="p-6 h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all duration-300 group">
-                <div className="mb-4 p-3 rounded-xl bg-gradient-to-br from-accent/20 to-primary/20 w-fit group-hover:scale-110 transition-transform duration-300">
-                  <value.icon size={24} weight="duotone" className="text-accent" />
+              <Card className={`p-7 h-full bg-card border-2 border-border/30 hover:border-accent/60 transition-all duration-300 group hover:shadow-2xl hover:shadow-accent/10`}>
+                <div className={`mb-5 p-4 rounded-2xl bg-gradient-to-br ${value.gradient} w-fit group-hover:scale-110 transition-transform duration-300`}>
+                  <value.icon size={28} weight="duotone" className="text-accent" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
-                <p className="text-muted-foreground text-sm" style={{ lineHeight: '1.6' }}>
+                <h3 className="font-bold text-xl mb-3 group-hover:text-accent transition-colors duration-300">{value.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {value.description}
                 </p>
               </Card>
@@ -98,13 +103,16 @@ export function AboutSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8"
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+          <h3 className="text-4xl md:text-5xl font-extrabold mb-4 text-center bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
             Tecnologias & Skills
           </h3>
+          <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
+            Ferramentas e tecnologias que domino para criar soluções completas
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -113,12 +121,12 @@ export function AboutSection() {
               key={skillGroup.category}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: groupIndex * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: groupIndex * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Card className="p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all duration-300">
-                <h4 className="font-semibold text-lg mb-4 text-accent">{skillGroup.category}</h4>
-                <div className="flex flex-wrap gap-2">
+              <Card className="p-7 bg-card border-2 border-border/30 hover:border-primary/60 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 h-full">
+                <h4 className="font-bold text-xl mb-5 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent uppercase tracking-wide">{skillGroup.category}</h4>
+                <div className="flex flex-wrap gap-2.5">
                   {skillGroup.items.map((skill, skillIndex) => (
                     <motion.div
                       key={skill}
@@ -126,14 +134,14 @@ export function AboutSection() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ 
-                        duration: 0.4, 
+                        duration: 0.3, 
                         delay: groupIndex * 0.1 + skillIndex * 0.05,
                         ease: [0.22, 1, 0.36, 1]
                       }}
                     >
                       <Badge 
                         variant="secondary"
-                        className="font-mono text-xs px-3 py-1 bg-secondary/50 hover:bg-secondary hover:scale-105 transition-all cursor-default"
+                        className="font-mono text-xs px-3 py-1.5 bg-gradient-to-br from-secondary/60 to-primary/40 hover:from-accent/70 hover:to-primary/60 border border-border/30 hover:scale-110 transition-all cursor-default font-semibold"
                       >
                         {skill}
                       </Badge>
