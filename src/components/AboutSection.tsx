@@ -47,7 +47,7 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+    <section id="about" className="py-24 md:py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/5 to-background" />
       
       <div className="relative max-w-7xl mx-auto">

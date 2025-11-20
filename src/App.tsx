@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useKV } from '@github/spark/hooks'
+import { Navbar } from '@/components/Navbar'
 import { Hero } from '@/components/Hero'
 import { AboutSection } from '@/components/AboutSection'
 import { ProjectGrid } from '@/components/ProjectGrid'
 import { ProjectDetail } from '@/components/ProjectDetail'
 import { ProjectForm } from '@/components/ProjectForm'
 import { AdminFab } from '@/components/AdminFab'
+import { GradientBlobs } from '@/components/GradientBlobs'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
 import { Toaster } from '@/components/ui/sonner'
 import { toast } from 'sonner'
@@ -83,7 +85,9 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <GradientBlobs />
+      <Navbar />
       <Hero />
       
       <AboutSection />
@@ -95,11 +99,18 @@ function App() {
         />
       </main>
 
-      <footer className="border-t border-border/50 py-12 px-6 md:px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-muted-foreground">
-            © {new Date().getFullYear()} Todos os direitos reservados.
-          </p>
+      <footer className="relative border-t border-border/50 py-16 px-6 md:px-12 lg:px-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background to-accent/5" />
+        <div className="relative max-w-7xl mx-auto text-center">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold mb-2">Vamos trabalhar juntos?</h3>
+            <p className="text-muted-foreground">Entre em contato e vamos criar algo incrível</p>
+          </div>
+          <div className="pt-8 mt-8 border-t border-border/30">
+            <p className="text-muted-foreground text-sm">
+              © {new Date().getFullYear()} Todos os direitos reservados. Feito com 💜 usando React + TypeScript
+            </p>
+          </div>
         </div>
       </footer>
 
