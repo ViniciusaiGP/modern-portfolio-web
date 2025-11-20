@@ -104,7 +104,44 @@ function App() {
         <div className="relative max-w-7xl mx-auto text-center">
           <div className="mb-6">
             <h3 className="text-2xl font-bold mb-2">Vamos trabalhar juntos?</h3>
-            <p className="text-muted-foreground">Entre em contato e vamos criar algo incrível</p>
+            <p className="text-muted-foreground mb-8">Entre em contato e vamos criar algo incrível</p>
+            
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <a 
+                href="mailto:contato@exemplo.com" 
+                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+              >
+                <span className="text-lg">📧</span>
+                contato@exemplo.com
+              </a>
+              <a 
+                href="https://github.com/seuusuario" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+              >
+                <span className="text-lg">🐙</span>
+                GitHub
+              </a>
+              <a 
+                href="https://linkedin.com/in/seuusuario" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+              >
+                <span className="text-lg">💼</span>
+                LinkedIn
+              </a>
+              <a 
+                href="https://twitter.com/seuusuario" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-foreground hover:text-accent transition-colors"
+              >
+                <span className="text-lg">🐦</span>
+                Twitter
+              </a>
+            </div>
           </div>
           <div className="pt-8 mt-8 border-t border-border/30">
             <p className="text-muted-foreground text-sm">
